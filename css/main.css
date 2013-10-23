@@ -19,6 +19,8 @@
     background-size: cover;
     opacity: 0;
     transition: opacity 1000ms;
+    -webkit-transition: opacity 1000ms;
+    -moz-transition: opacity 1000ms;
 }
 body {
     background: #efefef;
@@ -34,27 +36,21 @@ p {
     font-weight: 300;
 }
 
-@-webkit-keyframes bounce {
-/*    0% { top: 200%; 
-         -webkit-animation-timing-function: ease-out; }*/
-   50% { top: 70%; 
-         -webkit-animation-timing-function: ease-in; }
-  100% { top: 92%; }
-}
-
 #overlay {
     top: 200%;
     color: #000;
     position: absolute;
     width: 100%;
     background: rgb(82, 183, 228);
-/*    transition: top 200ms ease-out;
-    transition-delay: 1500ms;*/
+    -moz-transition: top 200ms ease-out;
+    -moz-transition-delay: 1500ms;
+    transition: top 200ms ease-out;
+    transition-delay: 1500ms;
 }
 
 #sheet {
     position: relative;
-    background: rgb(240,239,220);
+    background: #F3F2E3;
     width: 105%;
     top: -40px;
     margin-left: -5%;
@@ -63,14 +59,14 @@ p {
     padding-top: 10px;
     padding-bottom: 100px;
     transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
     -webkit-transform: rotate(-2deg);
 }
     body.loaded {
         overflow-y: auto;
     }
     body.loaded #overlay {
-        display: block;
-        -webkit-animation: bounce .6s linear 1.5s forwards;
+        top: 92%;
     }
     body.loaded #bg {
         opacity: 1;
