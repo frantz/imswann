@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I'm Swann</title>
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+<body>
+    <img src="./img/loading.gif" id="loading" alt="loading, please wait">
+    <div id="bg"></div>
+    <div id="overlay">
+        <div id="container">
+            <div id="telegram">
+                <h1>I'm Swann G.</h1>
+                <span class="date">28 oct 2013</span>
+                <p>
+                    Arrived safely in Berlin -(STOP)- 3.2kg and 50cm -(STOP)- my parents, Carine & Frantz, are proud of me -(STOP)- Ready to explore the world! -(STOP)-
+                </p>
+                <p>
+                    Bien arrive a Berlin -(STOP)- 3.2kg and 50cm -(STOP)- mes parents, Carine & Frantz, sont fiers de moi -(STOP)- pret a decouvrir le monde ! -(STOP)-
+                </P>
+                <p style="text-align: right">
+                    -- Swann
+                </p>
+            </div>
+            <div id="galery">
+                <h2>photos</h2>
+                <p>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.2.min.js"></script>
+<script type="text/javascript">
+    (function($) {
+        var imgSrc = './img/cajoo.jpg';
+
+        var loadCallback = function() {
+            $('#bg').css('background-image', 'url('+imgSrc+')');
+            $(document.body).addClass('loaded');
+        };
+
+        var img = new Image();
+        img.onload = loadCallback;
+        img.src = imgSrc;
+
+        window.jsonFlickrFeed = function(data) {
+            if (data && data.items && data.items.length) {
+                var $container = $("#galery p:first");
+
+                data.items.forEach(function(item) {
+                    if (item.media && item.media.m) {
+                        $('<div>').attr({
+                            'style': 'background-image: url(' + item.media.m + ')',
+                            'class': 'thumbnail'
+                        }).appendTo($container);
+                    }
+                });
+            }
+        }
+
+        $('<script src="http://api.flickr.com/services/feeds/photos_public.gne?id=48362780@N00&format=json">').appendTo(document.body);
+    })(jQuery);
+</script>
+</html>
