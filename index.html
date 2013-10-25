@@ -15,26 +15,27 @@
             <div id="container">
                 <div id="telegram">
                     <h1>i'm <span>Swann</span></h1>
-                    <!-- <span class="date">28 oct 2013</span> -->
                     <p>
-                        Arrived safely in Berlin -(STOP)- 3.2kg and 50cm -(STOP)- my parents, Carine & Frantz, are proud of me -(STOP)- Ready to explore the world! -(STOP)-
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    <p>
-                        Bien arrive a Berlin -(STOP)- 3.2kg and 50cm -(STOP)- mes parents, Carine & Frantz, sont fiers de moi -(STOP)- pret a decouvrir le monde ! -(STOP)-
-                    </P>
                     <p class="signature">
                         Swann G.
                     </p>
                 </div>
                 <div id="galery">
                     <h3>galery</h3>
-                    <p>
+                    <p class="clearfix">
                     </p>
                 </div>
             </div>
         </div>
         <div id="footer">
-            imswann.com
+            <a href="http://www.gregabbott.co/">illustration &copy; Greg Abbott</a> - imswann.com 2013
         </div>
     </div>
 </body>
@@ -61,11 +62,19 @@
                 var $container = $("#galery p:first");
 
                 data.items.forEach(function(item) {
+                    var date = new Date(item.date_taken);
+                    var dateString = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+
                     if (item.media && item.media.m) {
-                        $('<div>').attr({
-                            'style': 'background-image: url(' + item.media.m + ')',
+                        $('<figure>').attr({
                             'class': 'thumbnail'
-                        }).appendTo($container);
+                        })
+                        .append($("<div>").attr('style', 'background-image: url(' + item.media.m + ')'))
+                        .append($("<figcaption>").text(dateString + ' - ' + item.title))
+                        .appendTo($container)
+                        .click(function() {
+                            document.location = item.link;
+                        });
                     }
                 });
             }

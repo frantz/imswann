@@ -1,6 +1,18 @@
  * {
     box-sizing: border-box;
 }
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+.clearfix {
+    zoom:1;
+}
+
 #loading {
     position: absolute;
     left: 50%;
@@ -50,7 +62,7 @@ p {
 
 #sheet {
     position: relative;
-    background: #F3F2E3;
+    background: #F0EFDC;
     width: 105%;
     top: -40px;
     margin-left: -5%;
@@ -93,6 +105,9 @@ p {
     font-size: 16px;
     color: #FFF;
 }
+    #footer a {
+        color: #FFF;
+    }
 h1 {
     color: rgb(248,190,70);
     font-weight: 600;
@@ -113,10 +128,80 @@ h3 {
     font-family: 'Gochi Hand', cursive;
 }
 .thumbnail {
-    width: 150px;
-    height: 150px;
-    margin: 0 15px 15px 0;
-    background-size: cover;
-    display: inline-block;
-    border: 1px solid #333;
+    position: relative;
+    /*clear: left;*/
+    width: 170px;
+    height: 230px;
+    padding: 10px;
+    margin: 0 30px 30px 0;
+    display: block;
+    float: left;
+    background: #eee6d8;
+    background: -webkit-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+    background: -moz-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+    background: -o-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+    background: -ms-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+    background: linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+    -webkit-box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+    -moz-box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+    box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+
+    -webkit-transform:rotate(-1deg);
+    -moz-transform: rotate(-1deg);
+    -o-transform: rotate(-1deg);
+    -ms-transform: rotate(-1deg);
+    transform: rotate(-1deg);
+    -webkit-backface-visibility:hidden;
+    cursor: pointer;
+}
+
+.thumbnail:nth-child(3n+3) {
+    -webkit-transform:rotate(2deg);
+    -moz-transform: rotate(2deg);
+    -o-transform: rotate(2deg);
+    -ms-transform: rotate(2deg);
+    transform: rotate(2deg);
+
+    -webkit-box-shadow: -4px 4px 8px -4px rgba(0, 0, 0, .75);
+    -moz-box-shadow: -4px 4px 8px -4px rgba(0, 0, 0, .75);
+    box-shadow: -4px 4px 8px -4px rgba(0, 0, 0, .75);
+}
+
+
+    .thumbnail div {
+        width: 150px;
+        height: 150px;
+        background-size: cover;
+    }
+    .thumbnail figcaption {
+        font-family: 'Gochi Hand', cursive;
+        font-size: 16px;
+        padding: 5px 0;
+        text-align: center;
+    }
+
+.thumbnail:before { 
+    content: '';
+    display: block;
+    position: absolute;
+    left:-15px;
+    top: -10px;
+    width: 75px;
+    height: 25px;
+    background-color: rgba(222,220,198,0.7);
+    -webkit-transform: rotate(-12deg);
+    -moz-transform: rotate(-12deg);
+    -o-transform: rotate(-12deg);
+    -ms-transform: rotate(-12deg);
+}
+
+.thumbnail:nth-child(even):before {
+    left: 120px;
+    top: -15px;
+    width: 55px;
+    height: 25px;
+    -webkit-transform: rotate(12deg);
+    -moz-transform: rotate(12deg);
+    -o-transform: rotate(12deg);
+    -ms-transform: rotate(12deg);
 }
