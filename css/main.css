@@ -50,6 +50,7 @@ p {
 }
 
 #overlay {
+    visibility: hidden;
     top: 200%;
     color: #000;
     position: absolute;
@@ -79,6 +80,7 @@ p {
         overflow-y: auto;
     }
     body.loaded #overlay {
+        visibility: visible;
         top: 92%;
     }
     body.loaded #bg {

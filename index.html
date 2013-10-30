@@ -18,12 +18,15 @@
                 <div id="telegram">
                     <h1>i'm <span>Swann</span></h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        I was born October 29, 2013 in Berlin. I'm a cute little boy, 51cm and 3.4kg, 
+                        and the pride and joy of my parents, Carine & Frantz.
+                    </p>
+                    <p>
+                        Je suis né le 29 octobre 2013 à Berlin. Du haut de mes 51cm et 3.4kg je suis charmant petit garçon 
+                        qui fait la fierté de mes parents Carine & Frantz.
+                    </p>
+                    <p>
+                        Liebe Grüße XXX
                     </p>
                     <p class="signature">
                         Swann G.
@@ -43,16 +46,20 @@
 </body>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.2.min.js"></script>
 <script type="text/javascript">
-    if ('scroll' in window) {
-        window.scroll(0,0);
-    }
-    (function($) {
 
-        var imgSrc = './img/cajoo.jpg';
+    (function($) {
+       
+        var imgSrc = './img/swann.jpg';
 
         var loadCallback = function() {
-            $('#bg').css('background-image', 'url('+imgSrc+')');
-            $(document.body).addClass('loaded');
+             setTimeout(function(){
+                if ('scroll' in window) {
+                    window.scroll(0,0);
+                }
+                $('#bg').css('background-image', 'url('+imgSrc+')');
+                $(document.body).addClass('loaded');
+            }, 1500);
+
         };
 
         var img = new Image();
@@ -82,7 +89,7 @@
             }
         };
 
-        $('<script defer src="http://api.flickr.com/services/feeds/photos_public.gne?id=48362780@N00&format=json">').appendTo(document.body);
+        $('<script defer src="http://api.flickr.com/services/feeds/photos_public.gne?id=48362780@N00&format=json&tags=imswann">').appendTo(document.body);
     })(jQuery);
 </script>
 </html>
