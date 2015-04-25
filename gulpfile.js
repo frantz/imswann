@@ -6,6 +6,23 @@ var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
+var deployConfig = require('./config/deploy.json');
+var sshOptions = {
+  host: deployConfig.host,
+  username: deployConfig.username,
+  passphrase: deployConfig.passphrase,
+  privateKey: require('fs').readFileSync(deployConfig.keyPath)
+};
+var sftpOptions = {
+  host: deployConfig.host,
+  user: deployConfig.username,
+  remotePath: deployConfig.remotePath,
+  key: {
+    location: deployConfig.keyPath,
+    passphrase: deployConfig.passphrase
+  }
+};
+
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.css')
     .pipe($.sourcemaps.init())
@@ -111,4 +128,17 @@ gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras'], function () 
 
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
+});
+
+// basic deployment
+
+gulp.task('deploy:clean', function() {
+  var ssh = new $.ssh({sshConfig: sshOptions});
+  return ssh
+    .shell(['cd ' + deployConfig.remotePath, 'rm -r *']);
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('dist/**/*')
+    .pipe($.sftp(sftpOptions))
 });
