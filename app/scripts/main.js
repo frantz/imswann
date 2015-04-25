@@ -1,6 +1,6 @@
 /* jshint devel:true */
 (function($) {
-
+  'use strict';
   var imgSrc = 'images/swann.jpg';
 
   var loadCallback = function() {
@@ -20,9 +20,10 @@
 
   window.jsonFlickrFeed = function(data) {
     if (data && data.items && data.items.length) {
-      var $container = $("#galery p:first");
+      var $container = $('#galery p:first');
 
       data.items.forEach(function(item) {
+        /*jshint camelcase:false */
         var date = new Date(item.date_taken);
         var dateString = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
 
@@ -30,8 +31,8 @@
           $('<figure>').attr({
             'class': 'thumbnail'
           })
-            .append($("<div>").attr('style', 'background-image: url(' + item.media.m + ')'))
-            .append($("<figcaption>").text(dateString + ' - ' + item.title))
+            .append($('<div>').attr('style', 'background-image: url(' + item.media.m + ')'))
+            .append($('<figcaption>').text(dateString + ' - ' + item.title))
             .appendTo($container)
             .click(function() {
               document.location = item.link;
