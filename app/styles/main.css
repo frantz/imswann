@@ -1,0 +1,261 @@
+ * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+.clearfix {
+    zoom:1;
+}
+
+#loading {
+    position: absolute;
+    left: 50%;
+    margin-left: -400px;
+    top: 50%;
+    margin-top: -300px;
+}
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 0;
+    -webkit-transition: opacity 1000ms;
+    -moz-transition: opacity 1000ms;
+    transition: opacity 1000ms;
+}
+body {
+    background: #efefef;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.4em;
+    color: rgb(3,13,27);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+p {
+    font-weight: 300;
+}
+
+#overlay {
+    visibility: hidden;
+    top: 200%;
+    color: #000;
+    position: absolute;
+    width: 100%;
+    background: rgb(82, 183, 228);
+    -moz-transition: top 200ms ease-out;
+    -moz-transition-delay: 1500ms;
+    transition: top 200ms ease-out;
+    transition-delay: 1500ms;
+}
+
+#sheet {
+    position: relative;
+    background: #F0EFDC;
+    width: 105%;
+    top: -40px;
+    margin-left: -5%;
+    padding-left: 5%;
+    box-shadow: 5px 5px 0px rgba(133, 133, 133, .6);
+    padding-top: 10px;
+    padding-bottom: 100px;
+    -moz-transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+}
+    body.loaded {
+        overflow-y: auto;
+    }
+    body.loaded #overlay {
+        visibility: visible;
+        top: 92%;
+    }
+    body.loaded #bg {
+        opacity: 1;
+    }
+    body.loaded #loading {
+        display: none;
+    }
+
+#container {
+    width: 70%;
+    margin: auto;
+}
+#telegram {
+    background-image: url(../images/greg.png);
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 50%;
+    padding-right: 50%;
+}
+#footer {
+    position: absolute;
+    bottom: 15px;
+    right: 10%;
+    font-size: 16px;
+    color: #FFF;
+}
+    #footer a {
+        color: #FFF;
+    }
+h1 {
+    color: rgb(248,190,70);
+    font-weight: 600;
+    margin: 0;
+}
+    h1 span {
+        font-size: 1.7em;
+        color: rgb(230,66,49);
+        font-family: 'Gochi Hand', cursive;
+    }
+h3 {
+    color: rgb(64,183,203);
+    color: rgb(82, 183, 228);
+    font-weight: 600;
+}
+.signature {
+    text-align: right;
+    font-family: 'Gochi Hand', cursive;
+}
+
+#galery {
+    text-align: center;
+}
+    #galery h3 {
+        text-align: left;
+    }
+
+.thumbnail {
+    position: relative;
+    width: 170px;
+    height: 230px;
+    padding: 10px;
+    margin: 0 30px 30px 0;
+    display: inline-block;
+    /*float: left;*/
+    background: #eee6d8;
+    background: -webkit-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+    background: -moz-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+    background: -o-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+    background: -ms-linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+    background: linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+    -webkit-box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+    -moz-box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+    box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+
+    -webkit-transform:rotate(-1deg);
+    -moz-transform: rotate(-1deg);
+    -o-transform: rotate(-1deg);
+    -ms-transform: rotate(-1deg);
+    transform: rotate(-1deg);
+    -webkit-backface-visibility:hidden;
+    cursor: pointer;
+}
+
+.thumbnail:nth-child(3n+3) {
+    -webkit-transform:rotate(2deg);
+    -moz-transform: rotate(2deg);
+    -o-transform: rotate(2deg);
+    -ms-transform: rotate(2deg);
+    transform: rotate(2deg);
+
+    -webkit-box-shadow: -4px 4px 8px -4px rgba(0, 0, 0, .75);
+    -moz-box-shadow: -4px 4px 8px -4px rgba(0, 0, 0, .75);
+    box-shadow: -4px 4px 8px -4px rgba(0, 0, 0, .75);
+}
+
+
+    .thumbnail div {
+        width: 150px;
+        height: 150px;
+        background-size: cover;
+    }
+    .thumbnail figcaption {
+        font-family: 'Gochi Hand', cursive;
+        font-size: 16px;
+        padding: 5px 0;
+        text-align: center;
+    }
+
+.thumbnail:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left:-15px;
+    top: -10px;
+    width: 75px;
+    height: 25px;
+    background-color: rgba(222,220,198,0.7);
+    -webkit-transform: rotate(-12deg);
+    -moz-transform: rotate(-12deg);
+    -o-transform: rotate(-12deg);
+    -ms-transform: rotate(-12deg);
+    transform: rotate(-12deg);
+}
+
+.thumbnail:nth-child(even):before {
+    left: 120px;
+    top: -15px;
+    width: 55px;
+    height: 25px;
+    -webkit-transform: rotate(12deg);
+    -moz-transform: rotate(12deg);
+    -o-transform: rotate(12deg);
+    -ms-transform: rotate(12deg);
+    transform: rotate(12deg);
+}
+
+@media (max-width: 860px) {
+    #telegram {
+        background-position: bottom center;
+        padding-right: 0;
+        padding-bottom: 50%;
+        background-size: 100%;
+    }
+}
+@media (max-width: 860px) {
+    #sheet {
+        -moz-transform: none;
+        -webkit-transform: none;
+        transform: none;
+    }
+    #footer {
+        padding: 10px;
+        position: static;
+    }
+}
+
+@media (max-device-width: 860px) {
+    h1 {
+        font-size: 1.4em;
+    }
+    #sheet {
+        -moz-transform: none;
+        -webkit-transform: none;
+        transform: none;
+    }
+    #footer {
+        padding: 10px;
+        position: static;
+    }
+
+    #telegram {
+        background-position: bottom center;
+        padding-right: 0;
+        padding-bottom: 50%;
+        background-size: 100%;
+    }
+}
